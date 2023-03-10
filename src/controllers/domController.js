@@ -1,3 +1,4 @@
+import { modalController } from "./modalController.js";
 import { postController } from "./postController.js";
 
 export const domController = {
@@ -17,9 +18,7 @@ const createPost = async (post) => {
   postDiv.classList = "post";
 
   const postBtn = document.createElement("button");
-  postBtn.addEventListener("click", () =>
-    openPostModal(post.id, post.title, post.body)
-  );
+  postBtn.addEventListener("click", () => updatePostModal(post));
 
   const postTitle = document.createElement("h4");
   postTitle.classList = "post-title";
@@ -34,12 +33,17 @@ const createPost = async (post) => {
 
   const postUser = document.createElement("span");
   postUser.classList = "post-user";
-  postUser.textContent = await postController.getUser(post.userId);
+  postUser.textContent = post.userId;
   postDiv.appendChild(postUser);
 
   return postDiv;
 };
 
-const openPostModal = (id, title, body) => {
-  console.log(id, title, body);
+const updatePostModal = async (post) => {
+  if (!postController.isPostOnModal(post.id)) {
+    const comments = await postController.getComments(post.id);
+    post = { ...post, ...comments };
+    modalController.updateModalData(post);
+  }
+  modalController.openModal();
 };

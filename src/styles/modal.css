@@ -1,0 +1,52 @@
+#modal {
+  position: fixed;
+  inset: 0;
+  background-color: #000c;
+  z-index: 1;
+  display: none;
+  place-items: center;
+}
+
+#modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background-color: #fff;
+  padding: 1.5rem;
+  width: 40%;
+  max-height: 60vh;
+  border-radius: 0.25rem;
+  overflow-y: scroll;
+}
+
+#modal-post-title {
+  font-size: 2rem;
+}
+
+#modal-post-body {
+  font-size: 1.25rem;
+}
+
+#modal-comments-label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#modal-comments-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.post-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid black;
+  padding: 0.5rem;
+  border-radius: 0.15rem;
+}
+
+.post-comment-user {
+  font-size: 0.75rem;
+}

@@ -4,10 +4,40 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles/reset.css" />
     <link rel="stylesheet" href="src/styles/style.css" />
+    <link rel="stylesheet" href="src/styles/modal.css" />
     <title>Blogzin</title>
   </head>
   <body>
+    <div id="modal">
+      <div id="modal-wrapper">
+        <h4 id="modal-post-title">Title</h4>
+        <p id="modal-post-body">Body</p>
+        <div id="modal-comments">
+          <h3 id="modal-comments-label">Comentários</h3>
+          <div id="modal-comments-wrapper">
+            <div class="post-comment">
+              <span class="post-comment-user">E-mail</span>
+              <p class="post-comment-body">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut
+                deleniti molestias facere eum hic cum tempore laudantium amet id
+                rerum.
+              </p>
+            </div>
+            <div class="post-comment">
+              <span class="post-comment-user">E-mail</span>
+              <p class="post-comment-body">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut
+                deleniti molestias facere eum hic cum tempore laudantium amet id
+                rerum.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <main>
       <div id="posts-wrapper" class="container"></div>
     </main>

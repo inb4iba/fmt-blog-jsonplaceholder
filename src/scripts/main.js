@@ -1,4 +1,5 @@
 import { domController } from "../controllers/domController.js";
+import { modalController } from "../controllers/modalController.js";
 import { postController } from "../controllers/postController.js";
 
 let page = 1,
@@ -13,6 +14,14 @@ document.getElementById("load-posts-btn").addEventListener("click", () => {
   page++;
   loadPosts();
 });
+
+document
+  .getElementById("modal")
+  .addEventListener("click", () => modalController.closeModal());
+
+document
+  .getElementById("modal-wrapper")
+  .addEventListener("click", (e) => e.stopPropagation());
 
 window.openPostModal = (id, title, body) => {
   console.log(id, title, body);
