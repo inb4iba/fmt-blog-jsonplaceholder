@@ -3,7 +3,7 @@
 
 Esse projeto faz parte do Floripa Mais Tec.
 
-Leia em [inglês](./README.en.md).
+Read in [english](./README.en.md).
 
 ## Objetivo
 

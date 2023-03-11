@@ -3,7 +3,7 @@
 
 This project is part of the course Floripa Mais Tec.
 
-Read this in [pt-br](./README.md).
+Leia em [pt-br](./README.md).
 
 The main objective was to use fetch, async await and rest/spread operators to get posts information from JSONPlaceholder API and populate a page with, also when a post is clicked it should open a modal that loads the post and it's comments.
 
