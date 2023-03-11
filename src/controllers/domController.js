@@ -2,17 +2,18 @@ import { modalController } from "./modalController.js";
 import { postController } from "./postController.js";
 
 export const domController = {
-  addPosts: async (posts) => {
-    await Promise.all(posts.map(async (post) => await createPost(post))).then(
-      (res) =>
-        res.forEach((el) =>
-          document.getElementById("posts-wrapper").appendChild(el)
-        )
-    );
+  addPosts: (posts) => {
+    let lastPostElement;
+    posts.map(async (post) => {
+      const postElement = createPost(post);
+      document.getElementById("posts-wrapper").appendChild(postElement);
+      lastPostElement = postElement;
+    });
+    return lastPostElement;
   },
 };
 
-const createPost = async (post) => {
+const createPost = (post) => {
   const postDiv = document.createElement("div");
   postDiv.id = `post-${post.id}`;
   postDiv.classList = "post";

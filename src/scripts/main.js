@@ -3,16 +3,27 @@ import { modalController } from "../controllers/modalController.js";
 import { postController } from "../controllers/postController.js";
 
 let page = 1,
-  limit = 20;
+  limit = 20,
+  element;
 
 const loadPosts = async () => {
+  if (element) intersectionObserver.unobserve(element);
+
   const posts = await postController.getPosts(page, limit);
-  domController.addPosts(posts);
+  element = domController.addPosts(posts);
+
+  if (!element) return;
+
+  page++;
+  intersectionObserver.observe(element);
 };
 
-document.getElementById("load-posts-btn").addEventListener("click", () => {
-  page++;
-  loadPosts();
+const intersectionObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.intersectionRatio > 0) {
+      loadPosts();
+    }
+  });
 });
 
 document
@@ -22,9 +33,5 @@ document
 document
   .getElementById("modal-wrapper")
   .addEventListener("click", (e) => e.stopPropagation());
-
-window.openPostModal = (id, title, body) => {
-  console.log(id, title, body);
-};
 
 loadPosts();

@@ -1,7 +1,7 @@
 #modal {
   position: fixed;
   inset: 0;
-  background-color: #000c;
+  background-color: #fffc;
   z-index: 1;
   display: none;
   place-items: center;
@@ -11,7 +11,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  background-color: #fff;
+  background-color: var(--clr-primary);
+  color: white;
   padding: 1.5rem;
   width: 40%;
   max-height: 60vh;
@@ -42,11 +43,33 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  border: 1px solid black;
+  background-color: var(--clr-primary-darker);
   padding: 0.5rem;
-  border-radius: 0.15rem;
+  border-radius: 0.25rem;
 }
 
 .post-comment-user {
   font-size: 0.75rem;
+}
+
+#modal-wrapper::-webkit-scrollbar {
+  width: 0.75rem;
+  margin: 0.5rem;
+}
+
+/* Track */
+#modal-wrapper::-webkit-scrollbar-track {
+  background: var(--clr-primary);
+  border-radius: 0.25rem;
+}
+
+/* Handle */
+#modal-wrapper::-webkit-scrollbar-thumb {
+  background: var(--clr-primary-darker);
+  border-radius: 0.25rem;
+  margin: 0.25rem;
+}
+
+#modal-wrapper::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.25);
 }

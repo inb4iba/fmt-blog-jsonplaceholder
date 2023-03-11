@@ -1,5 +1,6 @@
 :root {
   --clr-primary: #4e4ecb;
+  --clr-primary-darker: #3b3ba6;
 }
 
 body {
@@ -16,6 +17,7 @@ body {
 .post {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
 
 .post button {

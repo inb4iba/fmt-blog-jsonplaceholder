@@ -2,11 +2,11 @@ let actualPost = {};
 
 export const postController = {
   getPosts: async (page, limit) => {
-    const loadBtn = document.getElementById("load-posts-btn");
+    // const loadBtn = document.getElementById("load-posts-btn");
     let posts = await fetchPosts(page, limit);
-    posts = updateUsers(posts);
-    if (posts.length === limit) loadBtn.style.display = "block";
-    else loadBtn.style.display = "none";
+    posts = await updateUsers(posts);
+    // if (posts.length === limit) loadBtn.style.display = "block";
+    // else loadBtn.style.display = "none";
     return posts;
   },
   getUser: async (id) => await fetchUser(id),
