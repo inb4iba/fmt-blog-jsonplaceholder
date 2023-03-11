@@ -12,8 +12,10 @@ const loadPosts = async () => {
   const posts = await postController.getPosts(page, limit);
   element = domController.addPosts(posts);
 
-  if (!element) return;
-
+  if (!element) {
+    document.querySelector(".lds-dual-ring").style.display = "none";
+    return;
+  }
   page++;
   intersectionObserver.observe(element);
 };
